@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">点我</button>
+    <button id="btn2">变色</button>
+
+    <h1 id="title">这是一个标题</h1>
+    
+    <script>
+        //DOM(Dociment Object Model, 文件对象模型)
+        //1 找到你要操作的dom对象
+        var btn1=document.getElementById('btn1');
+        //2 对这个对象进行相应的操纵
+        console.log(btn1);
+        btn1.onclick=function(){
+            //...
+            console.log('hahah');
+        };
+
+       // var person1 =new Object();
+       // person1.sayHello= function(){
+      //  
+       // }
+
+       var btn2 =document.getElementById('btn2');
+       var title =document.getElementById('title');
+       btn2.onclick=function(){
+           title.style.color='red';
+       }
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

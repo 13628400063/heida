@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // var a=5;
+   // var b='abc';
+   // var c=true;
+   // var o1=new object();
+    var a=5;
+    var b=a;
+    b=6;
+    console.log(a); 
+
+    var o1=[name,'lisi'];
+    var o2=o1;
+    o2.name='wangwu';
+    console.log(o1.name);
+    var a=5;
+
+    function test(x){
+        x=6;
+        console.log(x);
+
+    }
+    test(a);
+    function test(a){
+        a(function(c){
+            c();
+        });
+    }
+    test(function(b){
+        b(function(){
+            condole.log('hehe');
+        });
+    });
+    //以上代码展示了js的函数的  【函数式编程】的能力（特性）；
+    //编程范式
+    //1 面向过程编程
+    //2 面向对象编程
+    //3 泛型编程
+    //4 函数式编程
+    //5 可微分编程
+
+
+    //js中对象分类
+    //1 自定义对象
+    //2 内置对象
+    
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

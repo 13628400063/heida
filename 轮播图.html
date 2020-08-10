@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            height: 291px;
+            background: #cccccc;
+            margin: 50px auto;
+            /*溢出隐藏*/
+            overflow: hidden;
+            position: relative;
+        }
+        #tab{
+            position:absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+        }
+        #tab .selected{
+            background: #ff0000;
+            color: #ffffff;
+        }
+        #arrows span{
+            width: 30px;
+            height: 30px;
+            background: #000000;
+            color: #ffffff;
+            opacity: 0.7;
+            top: 50%;
+            margin-top: -25px;
+            position: absolute;
+            text-align: center;
+        }
+        .prev{
+            left: 0;
+        }
+        .next{
+            right: 0;
+        }
+        #content img{
+            display:none;   
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="tab">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div id="content">
+            <img class='selected' src="http://5b0988e595225.cdn.sohucs.com/images/20190924/9024fc451ca34fce879cf98a958f38db.jpeg" width="750px" height="291px" alt="失败">
+            <img src="http://pic.9ht.com/up/2018-10/15391604896785093.jpg" width="750px" height="291px" alt="失败">
+            <img src="https://up.enterdesk.com/edpic_360_360/b8/d8/14/b8d81410ee2c9914d70b580fd1d2de41.jpg" width="750px" height="291px" alt="失败">
+            <img src="https://www.feizl.com/upload2007/2014_02/140225142429212.jpg" width="750px" height="291px" alt="失败">
+            <img src="https://www.feizl.com/upload2007/2014_10/14101910429005.jpg" width="750px" height="291px" alt="失败">
+        </div>
+        <div id="arrows">
+            <span calss="prev" id="prev">&lt;</span>
+            <span class="next" id="next">&gt;</span>
+        </div>
+    </div>
+    <script>
+        var tab=document.getElementById('tab');
+        var aLi=tab.getElementsByTagName('li');
+        var content=document.getElementById('content');
+        var aImg=content.getElementsByTagName('img');
+        var arrow=document.getElementById('arrows');
+        var aSpan=arrow.getElementsByTagName('span');
+        var next=document.getElementById('next');
+        var prev=document.getElementById('prev');
+
+        var currentIndex=0; //用来保存当前选中图片的索引
+
+
+        //普通函数中  this指向window
+        function changeImg(index ){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className='';
+                aImg[i].className='';
+            }
+           // elem.className='selected';
+            aLi[index].className='selected';
+            aImg[index].className='selected';
+        }
+
+
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                changeImg(this.index);
+                currentIndex=this.index;
+         };
+        }
+
+        next.onclick=function(){
+            currentIndex++;
+            if(currentIndex ==aLi.length){
+                currentIndex=0;
+            }
+            changeImg(currentIndex);
+            
+        };
+        
+        var timer; 
+        function go() {
+            timer = setInterval(function () {
+                next.onclick();
+            }, 1000);
+        }
+        go();
+
+        prev.onclick=function(){
+            currentIndex--;
+            if(currentIndex==-1){
+                currentIndex=aLi.length-1;
+            }
+            changeImg(currentIndex);
+        };
+
+    </script>
+    
+</body>
+</html>

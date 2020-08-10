@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //js中对象分类
+    //1 自定义对象
+    //2 内置对象
+    //3 ***DOM对象***
+
+    //模拟人到图书馆的例子
+
+    function Person2(name,idCard){
+        this.name=name;
+        this.idCard=idCard;
+    }
+    var person={
+        name: 'lisi',
+        idCard: '123456789'
+    };
+    var person1=new person2('lisi','12345678');
+    var person2=new person2('wangwu','4575');
+    var book={
+        name: '大学英语四级',
+        ISBN: '2345678'
+    };
+
+    var library={
+        name: '学府书店',
+        adress: '学府路...'
+    };
+
+    var manager={
+        regist:function(erson,book){
+            console.log("人名:"+person.name+ ",书名"+book.name);
+
+        }
+    };
+    manager.regist(person,book);
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

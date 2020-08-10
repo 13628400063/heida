@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        /*css  代码     下面的意思是样式重置(重置浏览器自带的边距)*/
+        *{/*  选中所有元素  */
+            margin: 0;  /*外边距*/
+            padding: 0;  /*内边距*/
+        }
+        /*  # 是id .是class  */
+        ul{
+            list-style: none;/*去掉小黑点  或者其他的样式*/
+        }
+        /*重置结束*/
+        /*选择器的权重值
+          1 id:100
+          2 class:10
+          3 标签 ；1
+          */
+        #cantainer{
+            width: 400px;
+            height: 300px;
+            /* background: #cccccc; */
+            margin: 50px auto   ;/*auto 左右自动 就是居中*/
+        }
+
+        .tab li{
+            float: left;  /*内容横过来*/
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            margin-right: 2px;
+            text-align: center;/*只有文本的水平对齐  没有垂直对齐*/
+            line-height: 30px;/*行高等于高 等于垂直对齐的效果*/
+        }
+        .tab .selected{
+            background: #000000;/*优先级的问题 会导致颜色没有成功*/
+            color: #ffffff;
+        }
+        .content{
+            clear: both;
+            background: #cccccc;
+            height: 270px;
+            border-top: 1px solid #000000;
+        }
+        .content div{
+            display:none;   
+        }
+        .content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        完成网页特效，必须要按照下面的三步：
+        1 使用html完成页面的内容
+        2 使用css 完成页面的样式
+        3 使用js 完成过多页面的交互
+    -->
+    <!--
+        div(dicide)  区块
+        ul:unorder  list
+        ol order  list
+    -->
+    <div  id='cantainer'>
+        <ul class="tab" id='tab'>
+            <li class="selected">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+        </ul>
+        <div class="content" id='content'> <!--不必须 为了美观-->
+            <div class="selected">1111</div>
+            <div>2222</div>
+            <div>3333</div>
+        </div>
+    </div>
+    <!--
+    <button></button>
+    <img src="" alt="">
+    <h1></h1>
+    <script>
+        js 语法
+    </script>
+    -->
+    <script>
+        //1 获取li元素
+        // docume.getElementById('')
+        // var ul=document.getElementsByClassName('tab')[0];返回数组 ie8之前不能用
+        var tab=document.getElementById('tab');
+        var arr =tab.getElementsByTagName('li'); 
+        var content=document.getElementById('content');
+        var arr2 =content.getElementsByTagName('div');
+       //  console.log(arr);
+
+        for(var i=0;i<arr.length;i++){
+            arr[i].index=i;//为每一个li元素添加一个自定义index属性，用来保存i的值
+            //为arr中的每一个li元素绑定(注册)单击事件
+            arr[i].onclick=function()
+            {/*this 指向当前的元素*/
+                for(var i=0;i<arr.length;i++)
+                {
+                    arr2[i].className='';
+                    arr[i].className = '';
+                }
+                this.className ='selected';/*class是关键字 要把class换成className*/
+                console.log(i);
+                arr2[this.index].className='selected';
+            };
+
+        }
+
+
+    </script>
+</body>
+</html>

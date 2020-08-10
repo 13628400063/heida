@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*id 的值唯一*/
+        #h11{
+            color: red;
+            background: green;
+
+            width:  200px;
+            height: 100px;
+
+            padding: 10px;
+
+            border: 5px  solid #000000;/*16进制 表示颜色*/
+            
+            margin:  30px;
+        }
+        /*分组选择器*/
+        div,h1,p{
+            /*inline-block 行块  有2个问题
+             1 如果行块之前有空格 他会产生空隙
+             2 ie6不支持display：inline-block
+             */
+            /* display: inline-block;不写的话 默认block */
+            float: left;
+            width: 200px;
+
+        }
+        a,span{
+            display: block;
+        }
+        div{
+            background: #ff0000 ;
+        }
+        h1{
+            background: yellow;
+        }
+        p{
+            background-color: slateblue;
+        }
+    </style>
+</head>
+<body>
+        <!--
+        css 盒模型(box model)
+        1 内容区
+        2  边框
+        3 内边距
+        4 外边距 2个元素有间隔
+
+    -->
+    <!-- <h1 id='h11'>这是标题</h1> -->
+
+    <!--
+        元素的浮动 float
+        行与块
+        块元素： div  h1 p
+              垂直分布
+        行元素： a,span
+              水平分布
+    -->
+
+    <div>这是div</div>
+    <h1>这是h1</h1>
+    <p>这是p</p>
+    <a href="https://123.sogou.com/"> 搜狗</a>
+    <span> 这是span</span>
+
+
+</body>
+</html>
